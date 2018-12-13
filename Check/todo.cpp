@@ -10,7 +10,7 @@ std::ostream& operator<<(std::ostream& out,
 ToDo::ToDo(string t) : text(t) {}
 
 bool ToDo::operator==(const ToDo &t) const {
-	return this->text == t.text;
+	return text == t.text;
 }
 
 bool ToDo::operator!=(const ToDo & t) const {

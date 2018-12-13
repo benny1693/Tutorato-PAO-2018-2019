@@ -28,11 +28,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        widget.cpp \
+        check.cpp \
     todo.cpp \
     modello.cpp
 
 HEADERS += \
-        widget.h \
+        check.h \
     todo.h \
     modello.h

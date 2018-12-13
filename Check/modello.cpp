@@ -27,6 +27,7 @@ void Modello::remove(string el) {
 
 // Metodo di salvataggio della lista nel file indicato
 void Modello::save(string name) const {
+
 	std::ofstream file;
 	file.open(name);
 

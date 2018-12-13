@@ -1,4 +1,4 @@
-#include "widget.h"
+#include "check.h"
 
 Check::Check(QWidget *parent) : QWidget(parent) {}
 
