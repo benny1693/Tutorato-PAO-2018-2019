@@ -30,9 +30,11 @@ SOURCES += \
         main.cpp \
         check.cpp \
     todo.cpp \
-    modello.cpp
+    modello.cpp \
+    controller.cpp
 
 HEADERS += \
         check.h \
     todo.h \
-    modello.h
+    modello.h \
+    controller.h
