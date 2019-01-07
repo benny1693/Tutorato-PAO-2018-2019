@@ -14,10 +14,14 @@ public:
     Model();
     ~Model();
 
-    // Faremo le funzionalità di aggiunta e rimozione usando il pattern Model/View di Qt
+    void saveToFile() const;
+    void loadFromFile();
+    int todoCount() const;
 
-    void saveToFile(string) const;
-    void loadFromFile(string);
+    void add(Todo*); // aggiunge un Todo alla lista
+    void remove(int); // rimuove il Todo di indice 'index'
+    void replace(int, Todo*); // sostituisce il Todo di indice specificato con un altro
+    const Todo* getTodo(int) const; // ritorna il Todo di indice specificato
 };
 
 #endif // MODELLO_H

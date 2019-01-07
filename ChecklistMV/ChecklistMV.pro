@@ -30,14 +30,18 @@ SOURCES += \
     model.cpp \
     specialtodo.cpp \
     todo.cpp \
-    xmlio.cpp
+    xmlio.cpp \
+    qlistmodeladapter.cpp \
+    listview.cpp
 
 HEADERS += \
     mainwindow.h \
     model.h \
     specialtodo.h \
     todo.h \
-    xmlio.h
+    xmlio.h \
+    qlistmodeladapter.h \
+    listview.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

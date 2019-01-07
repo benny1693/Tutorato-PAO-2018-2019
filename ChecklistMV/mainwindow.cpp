@@ -1,7 +1,7 @@
 #include "mainwindow.h"
-#include "model.h"
+#include "qlistmodeladapter.h"
+#include "listview.h"
 
-// servono solo per centrare l'app nello schermo
 #include <QDesktopWidget>
 #include <QApplication>
 
@@ -11,18 +11,20 @@
 #include <QMenu>
 #include <QAction>
 #include <QMessageBox>
-#include <QListView>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
-    model(new Model()),
-    view(new QListView(this)) {
+    model(new QListModelAdapter(this)),
+    view(new ListView(this)) {
 
     // centra la finestra nello schermo
     move(QApplication::desktop()->screen()->rect().center() - rect().center());
-
     setWindowTitle(tr("Todo App")); // titolo applicazione
     setWindowIcon(QIcon("../ChecklistMV/data/icon.png")); // icona del programma
 
+    // fornisce alla view il modello dei dati che deve riflettere
+    view->setModel(model);
+
+    // avvia caricamento del modello
     loadData();
 
     // PULSANTI
@@ -58,17 +60,25 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     connect(saveButton, SIGNAL(clicked()), this, SLOT(saveData()));
     connect(saveAction, SIGNAL(triggered()), this, SLOT(saveData()));
     connect(exitAction, SIGNAL(triggered()), this, SLOT(close()));
+    connect(toggleButton, SIGNAL(clicked()), this, SLOT(toggleSpecialTodo()));
+    connect(addButton, SIGNAL(clicked()), this, SLOT(addTodo()));
+    connect(removeButton, SIGNAL(clicked()), this, SLOT(removeTodo()));
 }
 
 // NB: non distrugge i QWidget (di quello se ne occupa Qt)
-MainWindow::~MainWindow() {
-    delete model;
+MainWindow::~MainWindow() {}
+
+/*
+ * Ritorna la dimensione ottimale della finestra
+ */
+QSize MainWindow::sizeHint() const {
+    return QSize(300, 700);
 }
 
 
 void MainWindow::saveData() {
     try {
-        model->saveToFile("data");
+        model->saveToFile();
     } catch (std::exception) {
         QMessageBox box(QMessageBox::Warning, "Errore di salvataggio", "Non è stato possibile scrivere sul file", QMessageBox::Ok);
         box.exec();
@@ -77,6 +87,31 @@ void MainWindow::saveData() {
 }
 
 void MainWindow::loadData() {
-    model->loadFromFile("data");
+    model->loadFromFile();
+}
+
+/* Aggiunge un nuovo Todo al modello e lo seleziona nella view */
+void MainWindow::addTodo() {
+    model->insertRows(model->rowCount());
+
+    // Dà focus all'ultimo elemento aggiunto (lo seleziona)
+    view->clearSelection();
+    view->selectionModel()->clearCurrentIndex();
+    view->selectionModel()->select(model->index(model->rowCount() - 1), QItemSelectionModel::Select);
+}
+
+/* Rimuove il Todo selezionato nella view */
+void MainWindow::removeTodo() {
+    // prende l'elenco degli elementi selezionati dalla view
+    const QModelIndexList selection = view->selectionModel()->selectedIndexes();
+    if(selection.size() > 0)
+        model->removeRows(selection.at(0).row());
+}
+
+/* Sostituisce il Todo selezionato (nella view) con un altro di tipo SpecialTodo/Todo */
+void MainWindow::toggleSpecialTodo() {
+    const QModelIndexList selection = view->selectionModel()->selectedIndexes();
+    if(selection.size() > 0)
+        model->toggleType(selection.at(0));
 }
 
