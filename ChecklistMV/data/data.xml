@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--File di salvataggio dell'applicazione. Non modificare a mano.-->
+<root>
+    <todo type="special">Andare a cavallo</todo>
+    <todo type="standard">Pane per domani</todo>
+    <todo type="standard">Prenotare visita medicaaaa</todo>
+    <todo type="standard">Pulire il cavallo</todo>
+    <todo type="special">Pagare biglietto a Denis</todo>
+    <todo type="standard">Preparare la minestra</todo>
+    <todo type="standard">Stendere la relazione</todo>
+    <todo type="standard">Nuovo todo</todo>
+    <todo type="standard">Nuovo todo</todo>
+    <todo type="special">Ciao</todo>
+    <todo type="standard">todo</todo>
+    <todo type="standard">Nuovissimo</todo>
+</root>
