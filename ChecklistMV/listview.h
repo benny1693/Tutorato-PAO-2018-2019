@@ -10,6 +10,7 @@ class ListView : public QListView {
 public:
     ListView(QWidget* = nullptr);
     QSize sizeHint() const override;
+    void mousePressEvent(QMouseEvent*) override;
 };
 
 #endif // LISTVIEW_H

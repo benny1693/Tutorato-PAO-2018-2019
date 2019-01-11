@@ -6,6 +6,8 @@
 class Model; // definizioni incomplete
 class ListView;
 class QListModelAdapter;
+class QLineEdit;
+class QFilterProxyModel;
 
 class MainWindow : public QWidget {
     Q_OBJECT
@@ -17,8 +19,10 @@ public:
     QSize sizeHint() const override;
 
 private:
+    QFilterProxyModel* proxymodel;
     QListModelAdapter* model;
-    ListView* view; // per ora è solo un placeholder, vedremo come si usa
+    QLineEdit* searchbar;
+    ListView* view;
 
     void loadData(); // non è chiamata da un pulsante quindi non serve sia uno SLOT
 
@@ -27,6 +31,7 @@ private slots:
     void toggleSpecialTodo();
     void addTodo();
     void removeTodo();
+    void textFilterChanged();
 };
 
 #endif // MAINWINDOW_H

@@ -9,3 +9,7 @@ string Todo::getText() const {
 string Todo::getType() const {
     return "standard";
 }
+
+void Todo::editValue(string val) {
+    text = val;
+}

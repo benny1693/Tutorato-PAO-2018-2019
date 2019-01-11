@@ -44,3 +44,7 @@ void Model::replace(int index, Todo* todo) {
     delete list.at(index);
     list.replace(index, todo);
 }
+
+void Model::editTodo(int index, string text) {
+    list[index]->editValue(text);
+}

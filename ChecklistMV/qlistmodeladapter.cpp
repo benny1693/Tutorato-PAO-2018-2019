@@ -24,7 +24,7 @@ QVariant QListModelAdapter::data(const QModelIndex& index, int role) const {
     if (!index.isValid() || index.row() >= model->todoCount())
         return QVariant();
 
-    if (role == Qt::DisplayRole) {
+    if (role == Qt::DisplayRole || role == Qt::EditRole) {
         return QString::fromStdString(model->getTodo(index.row())->getText());
     }
 
@@ -38,6 +38,24 @@ QVariant QListModelAdapter::data(const QModelIndex& index, int role) const {
     }
 
     return QVariant();
+}
+
+bool QListModelAdapter::setData(const QModelIndex& index, const QVariant& value, int role) {
+    if (!index.isValid() && role != Qt::EditRole)
+        return false;
+
+    model->editTodo(index.row(), value.toString().toStdString());
+
+    emit dataChanged(index, index);
+
+    return true;
+}
+
+Qt::ItemFlags QListModelAdapter::flags(const QModelIndex& index) const {
+    if (!index.isValid())
+        return Qt::ItemIsEnabled;
+
+    return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
 }
 
 /*

@@ -32,7 +32,8 @@ SOURCES += \
     todo.cpp \
     xmlio.cpp \
     qlistmodeladapter.cpp \
-    listview.cpp
+    listview.cpp \
+    qfilterproxymodel.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -41,7 +42,8 @@ HEADERS += \
     todo.h \
     xmlio.h \
     qlistmodeladapter.h \
-    listview.h
+    listview.h \
+    qfilterproxymodel.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

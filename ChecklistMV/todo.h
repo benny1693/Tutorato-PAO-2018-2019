@@ -15,6 +15,7 @@ public:
 
     virtual string getText() const;
     virtual string getType() const;
+    void editValue(string);
 };
 
 #endif // TODO_H
