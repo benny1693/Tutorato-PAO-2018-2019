@@ -45,6 +45,6 @@ void Model::replace(int index, Todo* todo) {
     list.replace(index, todo);
 }
 
-void Model::editTodo(int index, string text) {
+void Model::editTodo(int index, const string& text) {
     list[index]->editValue(text);
 }

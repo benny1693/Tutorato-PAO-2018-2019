@@ -1,0 +1,44 @@
+QListView {
+	font-size: 14pt;
+	font-style: italic;
+	font-family: Arial;
+}
+
+QListView::item:selected {
+	background-color: lightblue;
+	color: black;
+}
+
+QListView::item {
+	border: 1px solid lightgray;
+	padding: 2px;
+}
+
+QMenuBar {
+	font-size: 13pt;
+}
+
+QLineEdit {
+	font-size: 13pt;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 2px 3px;
+	margin: 1px 2px;
+}
+
+QLineEdit:focus {
+	border: 1px solid orange;
+}
+
+#clearbutton {
+	font-size: 13pt;
+	width: 1.5em;
+	height: 1.5em;
+	padding: 0.2px;
+	margin: 1px 0;
+}
+
+
+
+
+

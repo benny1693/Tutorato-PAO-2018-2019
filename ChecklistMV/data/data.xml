@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--File di salvataggio dell'applicazione. Non modificare a mano.-->
 <root>
-    <todo type="special">Andare a cavallo</todo>
+    <todo type="standard">Andare a cavallo</todo>
     <todo type="standard">Pane per domani</todo>
-    <todo type="standard">Prenotare visita medicaaaa</todo>
-    <todo type="standard">Pulire il cavallo</todo>
-    <todo type="special">Pagare biglietto a Denis</todo>
-    <todo type="standard">Preparare la minestra</todo>
-    <todo type="standard">Stendere la relazione</todo>
-    <todo type="standard">Nuovo todo</todo>
-    <todo type="standard">Nuovo todo</todo>
-    <todo type="special">Ciao</todo>
-    <todo type="standard">todo</todo>
-    <todo type="standard">Nuovissimo</todo>
+    <todo type="standard">Prenotare visita medica</todo>
+    <todo type="standard">Pulire il cavallo nero</todo>
+    <todo type="special">Pagare bollette</todo>
+    <todo type="standard">Preparare il pranzo a sacco</todo>
+    <todo type="special">Piantare geranei</todo>
+    <todo type="standard">Cercare soluzione es</todo>
+    <todo type="standard">Comprare la carne</todo>
+    <todo type="special">ewa</todo>
 </root>

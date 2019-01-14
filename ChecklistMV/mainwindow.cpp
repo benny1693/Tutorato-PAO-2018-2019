@@ -23,9 +23,9 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     // centra la finestra nello schermo
     move(QApplication::desktop()->screen()->rect().center() - rect().center());
     setWindowTitle(tr("Todo App")); // titolo applicazione
-    setWindowIcon(QIcon("../ChecklistMV/data/icon.png")); // icona del programma
+    setWindowIcon(QIcon(":/images/icon")); // icona del programma
 
-    // Widget a dimensione fissa
+    // Widget a dimensione fissa non ridimensionabile
     setFixedSize(QSize(350, 700));
 
     // avvia caricamento del modello
@@ -43,6 +43,10 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
     QPushButton* saveButton = new QPushButton("Salva", this);
     QPushButton* toggleButton = new QPushButton("Speciale", this); // Special Todo toggle
     QPushButton* clearSearchButton = new QPushButton("X", this);
+
+    // Dà un nome al pulsante per usarlo nel css
+    clearSearchButton->setObjectName("clearbutton");
+    clearSearchButton->setToolTip("Clear search");
 
     // MENÙ e MENUBAR
     QMenuBar* menuBar = new QMenuBar();
@@ -93,7 +97,7 @@ MainWindow::~MainWindow() {}
  * Ritorna la dimensione ottimale della finestra
  */
 QSize MainWindow::sizeHint() const {
-    return QSize(300, 700);
+    return QSize(350, 700);
 }
 
 

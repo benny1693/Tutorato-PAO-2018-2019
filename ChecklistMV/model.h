@@ -22,7 +22,7 @@ public:
     void remove(int); // rimuove il Todo di indice 'index'
     void replace(int, Todo*); // sostituisce il Todo di indice specificato con un altro
     const Todo* getTodo(int) const; // ritorna il Todo di indice specificato
-    void editTodo(int, string);
+    void editTodo(int, const string&);
 };
 
 #endif // MODELLO_H

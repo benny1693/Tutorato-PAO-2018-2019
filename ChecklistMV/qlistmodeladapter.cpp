@@ -16,7 +16,7 @@ QListModelAdapter::~QListModelAdapter() {
 /*
  * Ritorna la dimensione (numero di righe) del modello
  */
-int QListModelAdapter::rowCount(const QModelIndex &) const {
+int QListModelAdapter::rowCount(const QModelIndex&) const {
     return model->todoCount();
 }
 
